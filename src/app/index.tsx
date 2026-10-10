@@ -12,6 +12,7 @@ import Tela1 from "@/components/Tela1";
 import Tela2 from "@/components/Tela2";
 import Tela3 from "@/components/Tela3";
 import AnaliseCredito from "@/components/AnaliseCredito";
+import FormularioCredito from "@/components/FormularioCredito";
 
 export default function Index() {
   const [campo, setCampo] = useState('');
@@ -23,8 +24,10 @@ export default function Index() {
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <Text style={styles.tituloPrincipal}>Análise de Crédito - Caixa</Text>
+      <FormularioCredito /> 
 
+      <Text style={styles.tituloPrincipal}>Exemplos de Análise:</Text>
+      
       <AnaliseCredito 
         nome="Gabriel" 
         idade={18} 
@@ -52,7 +55,8 @@ export default function Index() {
       <View style={styles.divisor} />
  
       <Pessoa />
-{/* 
+      
+      {/* 
       <Pressable onPress={acionarPopUp}>
         <Text>Boa noite (PopUp).</Text>
       </Pressable>
