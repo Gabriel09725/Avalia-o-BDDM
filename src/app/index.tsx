@@ -1,113 +1,63 @@
-import { Text, View, StyleSheet, TextInput, Image, Pressable, Alert, Switch, ScrollView } from "react-native";
-import Gato from "@/components/Gato";
-import Cachorro from "@/components/Cachorro";
-import Funcionario from "@/components/Funcionario";
-import Aluno from "@/components/Aluno";
-import Multiplicacao from "@/components/Mutiplicacao";
-import Pessoa from "@/components/Pessoa";
-import { useState } from "react";
-import ExemploStyle_Text from "@/components/ExemploStyle_Text";
-import ExemploStyle_View from "@/components/ExemploStyle_View";
-import Tela1 from "@/components/Tela1";
-import Tela2 from "@/components/Tela2";
-import Tela3 from "@/components/Tela3";
-import AnaliseCredito from "@/components/AnaliseCredito";
-import FormularioCredito from "@/components/FormularioCredito";
-import ListaAlunos from "@/components/ListaAlunos";
+import React from 'react';
+import { Text, View, StyleSheet, Pressable } from 'react-native';
+import { useRouter } from 'expo-router';
 
-export default function Index() {
-  const [campo, setCampo] = useState('');
-  const [ativado, setAtivado] = useState(false);
-
-  const acionarPopUp = () => {
-    Alert.alert("Outro botão");
-  };
+export default function MenuCinema() {
+  const router = useRouter();
 
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <ListaAlunos />
+    <View style={styles.container}>
+      <Text style={styles.nomeCinema}>CineMello</Text>
+      <Text style={styles.subtitulo}>Bem-vindo ao CineMello !</Text>
 
-      <View style={styles.divisor} />
- 
-      {/* <Pessoa /> */}
-      
-      {/* 
-      <Pressable onPress={acionarPopUp}>
-        <Text>Boa noite (PopUp).</Text>
+      <Pressable 
+        style={styles.botao} 
+        onPress={() => router.push('/Filmes')}
+      >
+        <Text style={styles.textoBotao}>Ver Listagem de Filmes</Text>
       </Pressable>
 
-      <Pressable
-        onPress={(evento) => {
-          Alert.alert(`Campo: ${campo}`);
-          console.log(evento);
-        }}>
-        <Text>Boa noite (Log Campo).</Text>
+      <Pressable 
+        style={styles.botao} 
+        onPress={() => router.push('/Sessoes')}
+      >
+        <Text style={styles.textoBotao}>Compre seu Ingresso</Text>
       </Pressable>
-
-      <Gato />
-
-      <Cachorro nome="Orelha" raca="Caramelo" />
-
-      <Funcionario
-        nome="Gabriel Mello"
-        idade={17}
-        setor="Tecnologia da Informacao"
-      />
-
-      <Aluno
-        nome="Gabriel Mello"
-        idade={17}
-        turma="2 Ano B"
-        nota1={8.5}
-        nota2={7.5}
-      />
-
-      <Image
-        source={{
-          uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTjK3cRbdtQTCkW_ifOEjQ9ddExudLPwwBE-MViVRBLtYJbOf7zWTnHnHR&s=10'
-        }}
-        style={{ width: 200, height: 200, resizeMode: "stretch", marginVertical: 10 }}
-      />
-
-      <Multiplicacao valor1={2} valor2={4} valor3={5} />
-
-      <TextInput
-        placeholder="Digite algo.ggg.."
-        value={campo}
-        onChangeText={(text) => { setCampo(text) }}
-        style={{ borderWidth: 1, width: 200, marginVertical: 10, padding: 5 }}
-      />
-
-      <Switch
-        value={ativado}
-        onValueChange={(valor) => { setAtivado(valor) }}
-      /> */}
-
-      {/* <ExemploStyle_Text /> */}
-      {/* <ExemploStyle_View /> */}
-      
-      {/* <Tela1 /> 
-      <Tela2 /> 
-      <Tela3 />  */}
-    </ScrollView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    paddingVertical: 40,
-    alignItems: "center",
-    justifyContent: "center",
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#111',
+    padding: 20,
   },
-  tituloPrincipal: {
-    fontSize: 20,
-    fontWeight: "bold",
-    marginBottom: 15,
+  nomeCinema: {
+    fontSize: 28,
+    fontWeight: 'bold',
+    color: '#ffcc00',
+    marginBottom: 10,
+    textAlign: 'center',
   },
-  divisor: {
-    height: 1,
-    backgroundColor: "#ccc",
-    width: "80%",
-    marginVertical: 20,
+  subtitulo: {
+    fontSize: 16,
+    color: '#ccc',
+    marginBottom: 30,
+  },
+  botao: {
+    backgroundColor: '#e50914',
+    padding: 15,
+    borderRadius: 8,
+    width: '80%',
+    alignItems: 'center',
+    marginVertical: 10,
+  },
+  textoBotao: {
+    color: '#fff',
+    fontWeight: 'bold',
+    fontSize: 16,
   },
 });
