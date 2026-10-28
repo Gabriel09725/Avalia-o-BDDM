@@ -1,28 +1,47 @@
-import React from 'react';
-import { Text, View, StyleSheet, Pressable } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, Alert } from 'react-native';
 import { useRouter } from 'expo-router';
 
-export default function MenuCinema() {
+export default function Index() {
+  const [nickname, setNickname] = useState('');
   const router = useRouter();
+
+  const handleStartGame = () => {
+    if (!nickname.trim()) {
+      Alert.alert('Atenção', 'Por favor, informe o seu nickname para começar!');
+      return;
+    }
+
+    router.push({
+      pathname: '/jogo',
+      params: { nickname: nickname.trim() }
+    });
+  };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.nomeCinema}>CineMello</Text>
-      <Text style={styles.subtitulo}>Bem-vindo ao CineMello !</Text>
+      <Text style={styles.title}> Adivinhe o Número</Text>
+      <Text style={styles.subtitle}>Digite o seu nickname para iniciar:</Text>
 
-      <Pressable 
-        style={styles.botao} 
-        onPress={() => router.push('/Filmes')}
-      >
-        <Text style={styles.textoBotao}>Ver Listagem de Filmes</Text>
-      </Pressable>
+      <TextInput
+        style={styles.input}
+        placeholder="Seu Nickname"
+        value={nickname}
+        onChangeText={setNickname}
+        maxLength={20}
+        autoCapitalize="none"
+      />
 
-      <Pressable 
-        style={styles.botao} 
-        onPress={() => router.push('/Sessoes')}
+      <TouchableOpacity style={styles.button} onPress={handleStartGame}>
+        <Text style={styles.buttonText}>Iniciar Jogo</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity 
+        style={[styles.button, styles.rankingButton]} 
+        onPress={() => router.push('/ranking')}
       >
-        <Text style={styles.textoBotao}>Compre seu Ingresso</Text>
-      </Pressable>
+        <Text style={styles.buttonText}>Ver Ranking </Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -30,34 +49,48 @@ export default function MenuCinema() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    backgroundColor: '#f3f4f6',
     alignItems: 'center',
-    backgroundColor: '#111',
+    justifyContent: 'center',
     padding: 20,
   },
-  nomeCinema: {
+  title: {
     fontSize: 28,
     fontWeight: 'bold',
-    color: '#ffcc00',
+    color: '#1f2937',
     marginBottom: 10,
-    textAlign: 'center',
   },
-  subtitulo: {
+  subtitle: {
     fontSize: 16,
-    color: '#ccc',
-    marginBottom: 30,
+    color: '#4b5563',
+    marginBottom: 20,
   },
-  botao: {
-    backgroundColor: '#e50914',
-    padding: 15,
-    borderRadius: 8,
-    width: '80%',
+  input: {
+    width: '100%',
+    height: 50,
+    backgroundColor: '#fff',
+    borderRadius: 10,
+    paddingHorizontal: 15,
+    fontSize: 16,
+    borderWidth: 1,
+    borderColor: '#d1d5db',
+    marginBottom: 20,
+  },
+  button: {
+    width: '100%',
+    height: 50,
+    backgroundColor: '#4f46e5',
+    borderRadius: 10,
     alignItems: 'center',
-    marginVertical: 10,
+    justifyContent: 'center',
+    marginBottom: 12,
   },
-  textoBotao: {
+  rankingButton: {
+    backgroundColor: '#059669',
+  },
+  buttonText: {
     color: '#fff',
+    fontSize: 18,
     fontWeight: 'bold',
-    fontSize: 16,
   },
 });
