@@ -1,56 +1,103 @@
-# Welcome to your Expo app 👋
+# Histórico de Prompts Utilizados
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+### Prompt 1
+Desenvolver um aplicativo que consiste em um jogo de adivinhação de números. O jogador deverá tentar descobrir um número sorteado aleatoriamente pelo aplicativo entre 1 e 100 e recebendo dicas que informam se o número a ser descoberto é maior ou menor.
+O aplicativo deverá contabilizar as tentativas realizadas e armazenar os resultados no Firebase. Os resultados serão usados para uma tela de ranking dos jogadores.
+As dicas sobre o número a ser descoberto devem ser exibidas em cores diferente: em verde se o número a ser descoberto for maior e em vermelho se o número for menor.
+Ao acertar o número o jogador ganha e é informado das suas tentativas.
+Para começar uma partida o jogador precisa informar o seu nickname.
 
-## Get started
+O número aleatório pode ser gerado usando:
+const numeroSorteado = Math.floor(Math.random() * 100) + 1;
 
-1. Install dependencies
+me ajude a fazer essa atividade
 
-   ```bash
-   npm install
-   ```
+---
 
-2. Start the app
+### Prompt 2
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
-   ```bash
-   npx expo start
-   ```
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyBQ5j7QexNg_hyXNYfG05kQOx3qrVvDdR8",
+  authDomain: "aula-4b7fc.firebaseapp.com",
+  projectId: "aula-4b7fc",
+  storageBucket: "aula-4b7fc.firebasestorage.app",
+  messagingSenderId: "690460486832",
+  appId: "1:690460486832:web:1a4f82355a881a09651f75",
+  measurementId: "G-LEL1G4NEES"
+};
 
-In the output, you'll find options to open the app in a
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+arrume o firebase.tsx
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+---
 
-## Get a fresh project
+### Prompt 3
+e agora ?
 
-When you're ready, run:
+---
 
-```bash
-npm run reset-project
-```
+### Prompt 4
+e agora ?
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+---
 
-### Other setup steps
+### Prompt 5
+ta no terminal preciso tirar um repositorio conectado e colocar outro
 
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
+---
 
-## Learn more
+### Prompt 6
+nao atualizou as pastas.
 
-To learn more about developing your project with Expo, look at the following resources:
+---
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+### Prompt 7
+PS C:\projetos_vscode\primeira-atividade> git status
+On branch main
+Your branch is up to date with 'origin/main'.
 
-## Join the community
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   package-lock.json
+        modified:   package.json
+        deleted:    src/app/Filmes.tsx
+        deleted:    src/app/Pagamento.tsx
+        deleted:    src/app/Sessoes.tsx
+        modified:   src/app/_layout.tsx
+        modified:   src/app/index.tsx
+        deleted:    src/components/Aluno.tsx
+        deleted:    src/components/AnaliseCredito.tsx
+        deleted:    src/components/Cachorro.tsx
+        deleted:    src/components/CardAlunos.tsx
+        deleted:    src/components/ExemploStyle_Text.tsx
+        deleted:    src/components/ExemploStyle_View.tsx
+        deleted:    src/components/FormularioCredito.tsx
+        deleted:    src/components/Funcionario.tsx
+        deleted:    src/components/Gato.tsx
+        deleted:    src/components/ListaAlunos.tsx
+        deleted:    src/components/Mutiplicacao.tsx
+        deleted:    src/components/Pessoa.tsx
+        deleted:    src/components/Tela1.tsx
+        deleted:    src/components/Tela2.tsx
+        deleted:    src/components/Tela3.tsx
 
-Join our community of developers creating universal apps.
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        FireBase.ts
+        src/app/jogo.tsx
+        src/app/ranking.tsx
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+no changes added to commit (use "git add" and/or "git commit -a")
+
+---
